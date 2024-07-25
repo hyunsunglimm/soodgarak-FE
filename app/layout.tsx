@@ -1,11 +1,19 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import './globals.css';
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false
+};
+
 export const metadata: Metadata = {
   title: '숟가락',
-  description: '숟가락 설명'
+  description:
+    '오늘 뭐먹지 ? 내 음식 취향은 ? 냉장고에 있는 걸로 뭘 할 수 있을까... 정답은 바로 "숟가락" !!!'
 };
 
 export default function RootLayout({
@@ -15,11 +23,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='ko'>
-      <body className='mx-auto flex min-h-screen max-w-[640px] flex-col'>
-        <Header />
-        {/* 구분용 색상 넣어놨습니다. bg-neutral-100 */}
-        <main className='grow bg-neutral-100'>{children}</main>
-        <Footer />
+      <body className='bg-neutral-100'>
+        <div className='mx-auto flex min-h-screen max-w-[640px] flex-col bg-white'>
+          <Header />
+          <main className='grow p-20'>{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
