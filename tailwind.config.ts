@@ -85,6 +85,9 @@ const config: Config = {
         40: '4rem',
         44: '4.4rem',
         48: '4.8rem'
+      },
+      boxShadow: {
+        all: 'rgba(0, 0, 0, 0.24) 0px 3px 8px'
       }
     }
   },

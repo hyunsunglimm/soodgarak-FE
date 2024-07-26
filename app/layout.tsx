@@ -26,7 +26,7 @@ export default function RootLayout({
       <body className='bg-neutral-100'>
         <div className='mx-auto flex min-h-screen max-w-[640px] flex-col bg-white'>
           <Header />
-          <main className='grow p-20'>{children}</main>
+          <main className='grow px-20 pb-[12rem] pt-20'>{children}</main>
           <Footer />
         </div>
       </body>

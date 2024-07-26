@@ -19,3 +19,11 @@ html {
 body {
   font-size: 1.6rem;
 }
+
+/* 이미지 드래그 막기 */
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+}

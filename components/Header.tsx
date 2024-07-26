@@ -13,7 +13,7 @@ const Header = () => {
   };
 
   return (
-    <header className='sticky top-0 flex gap-20 bg-white p-20'>
+    <header className='sticky top-0 z-10 flex gap-20 bg-white p-20'>
       <Link href='/'>
         <Image
           src='/images/soodgarak-logo.png'
@@ -21,11 +21,12 @@ const Header = () => {
           width={150}
           height={60}
           className='h-[6rem] w-[15rem]'
+          priority
         />
       </Link>
       <div className='relative grow'>
         <input
-          className='text-20 rounded-12 h-[6rem] w-full bg-gray-sm pl-[5.6rem]'
+          className='h-[6rem] w-full rounded-12 bg-gray-sm pl-[5.6rem] text-20'
           placeholder='요리 or 재료'
           ref={inputRef}
         />
