@@ -67,7 +67,8 @@ const config: Config = {
         36: '3.6rem',
         40: '4rem',
         44: '4.4rem',
-        48: '4.8rem'
+        48: '4.8rem',
+        52: '5.2rem'
       },
       margin: {
         2: '0.2rem',
@@ -84,7 +85,8 @@ const config: Config = {
         36: '3.6rem',
         40: '4rem',
         44: '4.4rem',
-        48: '4.8rem'
+        48: '4.8rem',
+        52: '5.2rem'
       },
       boxShadow: {
         all: 'rgba(0, 0, 0, 0.24) 0px 3px 8px'
