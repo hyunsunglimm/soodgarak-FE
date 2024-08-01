@@ -19,13 +19,15 @@ const FoodsPage = ({ searchParams }: FoodsPageProps) => {
   if (type !== 'category' && type !== 'search') return redirect('/');
 
   return (
-    <section>
-      <h1 className='mb-8 text-28 font-bold'>
-        {type === 'category' ? `${categoryKrTitle}` : `"${keyword}"의 검색결과`}
-      </h1>
-      <p className='mb-16 text-end text-gray-500'>{DUMMY_FOODS.length}개의 요리들이 있습니다.</p>
-      <FoodList foods={DUMMY_FOODS} />
-    </section>
+    <>
+      <section>
+        <h1 className='mb-8 text-28 font-bold'>
+          {type === 'category' ? `${categoryKrTitle}` : `"${keyword}"의 검색결과`}
+        </h1>
+        <p className='mb-16 text-end text-gray-500'>{DUMMY_FOODS.length}개의 요리들이 있습니다.</p>
+        <FoodList foods={DUMMY_FOODS} />
+      </section>
+    </>
   );
 };
 

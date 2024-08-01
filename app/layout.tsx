@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import BottomNavBar from '@/components/BottomNavBar';
 import './globals.css';
 
 export const viewport: Viewport = {
@@ -13,7 +13,10 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: '숟가락',
   description:
-    '오늘 뭐먹지 ? 내 음식 취향은 ? 냉장고에 있는 걸로 뭘 할 수 있을까... 정답은 바로 "숟가락" !!!'
+    '오늘 뭐먹지 ? 내 음식 취향은 ? 냉장고에 있는 걸로 뭘 할 수 있을까... 정답은 바로 "숟가락" !!!',
+  icons: {
+    icon: '/images/soodgarak.png'
+  }
 };
 
 export default function RootLayout({
@@ -24,10 +27,10 @@ export default function RootLayout({
   return (
     <html lang='ko'>
       <body className='bg-neutral-100'>
-        <div className='mx-auto flex min-h-screen max-w-[640px] flex-col bg-white'>
+        <div className='mx-auto flex min-h-dvh max-w-[640px] flex-col bg-white'>
           <Header />
-          <main className='grow px-20 pb-[12rem] pt-20'>{children}</main>
-          <Footer />
+          <main className='flex grow flex-col px-20 pb-[12rem] pt-20'>{children}</main>
+          <BottomNavBar />
         </div>
       </body>
     </html>
