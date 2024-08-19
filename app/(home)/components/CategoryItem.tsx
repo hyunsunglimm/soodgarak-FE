@@ -10,7 +10,7 @@ type CategoryItemProps = {
 const CategoryItem = ({ title, enTitle, size }: CategoryItemProps) => {
   return (
     <Link
-      href={`/foods?type=category&keyword=${enTitle}`}
+      href={`/foods?category=${enTitle}`}
       className={`group relative overflow-hidden rounded-12 ${size === '2' ? 'col-span-2' : 'col-span-3'}`}
     >
       <Image

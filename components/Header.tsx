@@ -16,7 +16,7 @@ const Header = () => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    router.push(`/foods?type=search&keyword=${inputRef.current?.value}`);
+    router.push(`/search?keyword=${inputRef.current?.value}`);
     if (inputRef.current) inputRef.current.value = '';
   };
 

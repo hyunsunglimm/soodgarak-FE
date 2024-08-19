@@ -1,6 +1,5 @@
-import FoodListItem from '@/app/(home)/components/FoodListItem';
-import { DUMMY_FOODS } from '@/mock/data';
 import { Food } from '@/types/food';
+import FoodListItem from './FoodListItem';
 
 type FoodListProps = {
   foods: Food[];
@@ -9,9 +8,9 @@ type FoodListProps = {
 const FoodList = ({ foods }: FoodListProps) => {
   return (
     <ul className='grid grid-cols-2 gap-20'>
-      {foods.map((food) => (
+      {foods.map((food, index) => (
         <li key={food.name}>
-          <FoodListItem food={food} />
+          <FoodListItem food={food} priority={index <= 6} />
         </li>
       ))}
     </ul>

@@ -10,10 +10,13 @@ const config: Config = {
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))'
+        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        refrigerator: 'url(/images/fridge.png)'
       },
       colors: {
-        'gray-sm': '#F1F1F1'
+        'gray-sm': '#F1F1F1',
+        primary: '#EBB22F',
+        action: 'rgba(139, 69, 19, 0.2)'
       },
       fontSize: {
         10: '1rem',

@@ -18,6 +18,7 @@ const FoodDetailPage = ({ params }: FoodDetailPageProps) => {
           width={600}
           height={400}
           className='mb-24 h-[40rem] w-full rounded-12'
+          priority
         />
         <h2 className='text-32 font-bold'>{food?.name}</h2>
       </div>
