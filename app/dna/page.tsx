@@ -1,9 +1,7 @@
-import dynamic from 'next/dynamic';
-
-const CardSwiper = dynamic(() => import('./components/CardSwiper'), { ssr: false });
+import FoodDnaLanding from './components/FoodDnaLanding';
 
 const DNAPage = () => {
-  return <CardSwiper />;
+  return <FoodDnaLanding />;
 };
 
 export default DNAPage;

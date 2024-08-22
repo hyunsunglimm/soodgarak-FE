@@ -4,6 +4,7 @@ type Manual = {
 };
 
 export type Food = {
+  id: number;
   name: string;
   recipeWay: string;
   category: string;

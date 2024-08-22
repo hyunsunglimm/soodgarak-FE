@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import Header from '@/components/Header';
 import BottomNavBar from '@/components/BottomNavBar';
 import './globals.css';
+import QueryProviders from '@/context/queryProvider';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -27,10 +28,13 @@ export default function RootLayout({
   return (
     <html lang='ko'>
       <body className='bg-neutral-100'>
-        <div className='mx-auto flex min-h-dvh max-w-[640px] flex-col bg-white'>
-          <Header />
-          <main className='flex grow flex-col px-20 pb-[12rem] pt-20'>{children}</main>
-          <BottomNavBar />
+        <div className='mx-auto flex min-h-dvh max-w-[640px] flex-col overflow-x-hidden bg-white'>
+          <QueryProviders>
+            <Header />
+            <main className='flex grow flex-col px-20 pb-[12rem] pt-20'>{children}</main>
+            <BottomNavBar />
+            <div id='portal' />
+          </QueryProviders>
         </div>
       </body>
     </html>
