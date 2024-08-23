@@ -54,8 +54,7 @@ const CardSwiper = () => {
       if (index !== i) return;
 
       const isGone = gone.has(index);
-      const x = isGone ? (200 + window.innerWidth) * xDir : active ? mx : 0;
-      console.log(x);
+      const x = isGone ? Math.min(200 + window.innerWidth, 1000) * xDir : active ? mx : 0;
       const rotate = active
         ? (mx / window.innerWidth) * 20
         : isGone

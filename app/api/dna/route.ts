@@ -1,7 +1,7 @@
 import { DUMMY_FOODS } from '@/mock/data';
 
 export const GET = async () => {
-  await new Promise((resolve) => setTimeout(resolve, 3000));
+  await new Promise((resolve) => setTimeout(resolve, 2000));
   const foods = DUMMY_FOODS;
 
   return Response.json(foods);

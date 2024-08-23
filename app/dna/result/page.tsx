@@ -14,8 +14,10 @@ const DNAResultPage = () => {
             다시하기
           </Link>
         </Button>
-        <Button className='w-full'>
-          <p className='text-28 font-bold'>내 정보에 등록</p>
+        <Button className='w-full' asChild>
+          <Link href='/my' className='text-28 font-bold'>
+            내 정보에 등록
+          </Link>
         </Button>
       </div>
     </section>
