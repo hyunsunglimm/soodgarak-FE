@@ -25,7 +25,9 @@ const config = {
       },
       colors: {
         'gray-sm': '#F1F1F1',
+        'gray-md': '#cccccc',
         primary: '#EBB22F',
+        tan: '#d2b48c',
         action: 'rgba(139, 69, 19, 0.2)',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
@@ -73,6 +75,7 @@ const config = {
       },
       borderRadius: {
         none: '0',
+        4: '0.4rem',
         8: '0.8rem',
         12: '1.2rem',
         16: '1.6rem',

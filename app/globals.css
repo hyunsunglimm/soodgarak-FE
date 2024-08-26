@@ -140,3 +140,13 @@ img {
   font-weight: 900;
   src: url('/fonts/Freesentation-9Black.ttf') format('truetype');
 }
+
+/* 달력 입력 막기 */
+input[type='date']::-webkit-calendar-picker-indicator {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  padding: 2rem 0;
+  background-position: calc(100% - 1.2rem);
+  cursor: pointer;
+}

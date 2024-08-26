@@ -1,14 +1,34 @@
 import FridgeContent from './_components/FridgeContent';
 import FridgeMenu from './_components/FridgeMenu';
 import MyInfo from './_components/MyInfo';
+import AddIngredients from './_components/AddIngredients';
 
-const MyPage = () => {
+type MyPageProps = {
+  searchParams: {
+    tab?: string;
+  };
+};
+
+const MyPage = ({ searchParams }: MyPageProps) => {
+  const tab = searchParams?.tab;
+
+  const renderContent = () => {
+    switch (tab) {
+      case 'add':
+        return <AddIngredients />;
+      case 'select':
+        return <FridgeContent />;
+      default:
+        return <FridgeContent />;
+    }
+  };
+
   return (
     <div className='mt-20'>
       <MyInfo />
       <div className='mt-[5.2rem]'>
         <FridgeMenu />
-        <FridgeContent />
+        <div className='mt-40'>{renderContent()}</div>
       </div>
     </div>
   );
