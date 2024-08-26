@@ -122,5 +122,3 @@ const CardSwiper = () => {
 };
 
 export default CardSwiper;
-
-// 배포 테스트

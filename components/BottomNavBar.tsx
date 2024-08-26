@@ -19,7 +19,7 @@ const BottomNavBar = () => {
   return (
     <footer className='fixed bottom-0 w-full max-w-[640px]'>
       <nav>
-        <ul className='flex justify-evenly rounded-t-[2.4rem] bg-white py-[1.5rem] ring-1 ring-primary'>
+        <ul className='flex justify-evenly rounded-t-[2.4rem] bg-white py-[1.5rem] ring-1 ring-slate-200'>
           {NAV_ITEMS.map(({ title, link, Icon }) => {
             const isActive = link === '/' ? pathname === link : pathname.startsWith(link);
 
