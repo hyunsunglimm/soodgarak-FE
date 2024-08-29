@@ -17,9 +17,9 @@ const MyPage = ({ searchParams }: MyPageProps) => {
       case 'add':
         return <AddIngredients />;
       case 'select':
-        return <FridgeContent />;
+        return <FridgeContent tab={tab} />;
       default:
-        return <FridgeContent />;
+        return <FridgeContent tab={tab} />;
     }
   };
 

@@ -15,8 +15,6 @@ const AddIngredients = () => {
   const [expirationDate, setExpirationDate] = useState('');
 
   const inputRef = useRef<HTMLInputElement>(null);
-  const purchaseDateRef = useRef<HTMLInputElement>(null);
-  const expirationDateRef = useRef<HTMLInputElement>(null);
 
   // 대분류 내용 변경
   const handleCategoryChange = (option: CategoryOption | null) => {
@@ -57,17 +55,13 @@ const AddIngredients = () => {
     }
   };
 
-  // date input focus
-  const handlePurchaseDateClick = () => {
-    if (purchaseDateRef.current) {
-      purchaseDateRef.current.focus();
-    }
+  // date input focused class 추가
+  const handleFocus = (event: React.FocusEvent<HTMLInputElement>) => {
+    event.target.classList.add('focused');
   };
 
-  const handleExpirationDateClick = () => {
-    if (expirationDateRef.current) {
-      expirationDateRef.current.focus();
-    }
+  const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
+    event.target.classList.remove('focused');
   };
 
   useEffect(() => {
@@ -177,12 +171,12 @@ const AddIngredients = () => {
           <label className='mb-12 block text-20'>구매날짜</label>
           <input
             type='date'
-            ref={purchaseDateRef}
             value={purchaseDate}
             max={getTodayDate()}
             onChange={(e) => setPurchaseDate(e.target.value)}
-            onClick={handlePurchaseDateClick}
-            className='relative h-[4.8rem] w-[22rem] cursor-pointer select-none rounded-4 border px-12 text-18 focus:outline-[#2684ff]'
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            className='relative h-[4.8rem] w-[22rem] cursor-pointer select-none rounded-4 border px-12 text-18'
           />
         </div>
         <p className='mx-20 mt-32 text-32'>~</p>
@@ -190,12 +184,12 @@ const AddIngredients = () => {
           <label className='mb-12 block text-20'>유통기한</label>
           <input
             type='date'
-            ref={expirationDateRef}
             value={expirationDate}
             min={purchaseDate}
             onChange={(e) => setExpirationDate(e.target.value)}
-            onClick={handleExpirationDateClick}
-            className='relative h-[4.8rem] w-[22rem] select-none rounded-4 border px-12 text-18 focus:outline-[#2684ff]'
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            className='relative h-[4.8rem] w-[22rem] select-none rounded-4 border px-12 text-18'
           />
         </div>
       </div>

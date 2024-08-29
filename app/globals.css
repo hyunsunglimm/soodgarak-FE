@@ -150,3 +150,7 @@ input[type='date']::-webkit-calendar-picker-indicator {
   background-position: calc(100% - 1.2rem);
   cursor: pointer;
 }
+
+input[type='date'].focused {
+  outline: 2px solid #2684ff;
+}
