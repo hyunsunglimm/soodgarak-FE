@@ -1,5 +1,6 @@
 import { getFoodCards } from '@/service/food';
 import { SimpleFood } from '@/types/food';
+import { mbtiDerivation } from '@/utils/foodDNA';
 import { useSprings } from '@react-spring/web';
 import { useQuery } from '@tanstack/react-query';
 import { useDrag } from '@use-gesture/react';
@@ -12,8 +13,6 @@ const useTinder = () => {
     queryKey: ['foods', { type: 'dna' }],
     queryFn: getFoodCards
   });
-
-  console.log(cards);
 
   const router = useRouter();
 
@@ -33,11 +32,11 @@ const useTinder = () => {
 
   useEffect(() => {
     if (likedCards.length === 15) {
+      sessionStorage.setItem('mbti', mbtiDerivation(likedCards));
+      console.log('FOOD DNA 결과: ', mbtiDerivation(likedCards));
       setIsOpen(true);
-    } else {
-      if (currentIndex + 1 === 10) alert('카드 10장 더 주세요 !');
     }
-  }, [likedCards.length, router, currentIndex]);
+  }, [likedCards, router, currentIndex]);
 
   const complete = (
     isTrigger: boolean,
