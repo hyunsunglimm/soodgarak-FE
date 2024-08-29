@@ -1,4 +1,6 @@
-import FoodDNAResult from './components/FoodDNAResult';
+import dynamic from 'next/dynamic';
+
+const FoodDNAResult = dynamic(() => import('./components/FoodDNAResult'), { ssr: false });
 
 const DNAResultPage = () => {
   return <FoodDNAResult />;
