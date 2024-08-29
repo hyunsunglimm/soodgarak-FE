@@ -4,6 +4,7 @@ import { useState } from 'react';
 import CardSwiper from './CardSwiper';
 import { getQueryClient } from '@/context/queryProvider';
 import { Button } from '@/components/ui/button';
+import { getFoodCards } from '@/service/food';
 
 const FoodDnaLanding = () => {
   const [isAgree, setIsAgree] = useState(false);
@@ -13,8 +14,8 @@ const FoodDnaLanding = () => {
     setIsLoading(true);
     const queryClient = getQueryClient();
     await queryClient.prefetchQuery({
-      queryKey: ['dna'],
-      queryFn: async () => fetch('/api/dna').then((res) => res.json()),
+      queryKey: ['foods', { type: 'dna' }],
+      queryFn: getFoodCards,
       staleTime: 0
     });
     setIsAgree(true);

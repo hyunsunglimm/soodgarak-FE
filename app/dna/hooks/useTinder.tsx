@@ -1,4 +1,5 @@
-import { Food } from '@/types/food';
+import { getFoodCards } from '@/service/food';
+import { SimpleFood } from '@/types/food';
 import { useSprings } from '@react-spring/web';
 import { useQuery } from '@tanstack/react-query';
 import { useDrag } from '@use-gesture/react';
@@ -7,15 +8,17 @@ import { useEffect, useState } from 'react';
 
 const useTinder = () => {
   // 무한 쿼리로 변경 예정
-  const { data: cards } = useQuery<Food[]>({
-    queryKey: ['dna'],
-    queryFn: () => fetch('/api/dna').then((res) => res.json())
+  const { data: cards } = useQuery({
+    queryKey: ['foods', { type: 'dna' }],
+    queryFn: getFoodCards
   });
+
+  console.log(cards);
 
   const router = useRouter();
 
   const [currentIndex, setCurrentIndex] = useState(cards!.length - 1);
-  const [likedCards, setLikedCards] = useState<Food[]>([]);
+  const [likedCards, setLikedCards] = useState<SimpleFood[]>([]);
   const [isOpen, setIsOpen] = useState(false);
 
   const [springs, api] = useSprings(cards!.length, (index) => ({

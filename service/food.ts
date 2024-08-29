@@ -20,3 +20,10 @@ export const getFoodsByKeyword = async (keyword: string): Promise<SimpleFood[]> 
 
   return foods;
 };
+
+export const getFoodCards = async (): Promise<SimpleFood[]> => {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/recipe`);
+  const foods = await res.json();
+
+  return foods;
+};

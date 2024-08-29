@@ -15,7 +15,7 @@ const CardSwiper = () => {
         {cards?.map((food, index) => (
           <FoodSwipeCard key={food.id} food={food} style={springs[index]} bind={bind(index)} />
         ))}
-        <div className='absolute bottom-8 flex justify-center gap-36'>
+        <div className='absolute bottom-0 flex justify-center gap-36'>
           <HateButton onClick={hate} />
           <LikeButton onClick={like} />
         </div>

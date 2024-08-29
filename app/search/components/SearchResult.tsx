@@ -11,7 +11,7 @@ const SearchResult = ({ keyword }: { keyword: string }) => {
     isPending,
     isSuccess
   } = useQuery({
-    queryKey: ['foods', { type: 'category' }, keyword],
+    queryKey: ['foods', { type: 'search' }, keyword],
     queryFn: () => getFoodsByKeyword(keyword)
   });
 
