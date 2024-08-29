@@ -1,4 +1,4 @@
-import { DUMMY_FOODS } from '@/mock/data';
+import { DUMMY_FOOD } from '@/mock/data';
 import Image from 'next/image';
 
 type FoodDetailPageProps = {
@@ -8,7 +8,7 @@ type FoodDetailPageProps = {
 };
 
 const FoodDetailPage = ({ params }: FoodDetailPageProps) => {
-  const food = DUMMY_FOODS.find((food) => food.name === decodeURIComponent(params.foodId));
+  const food = DUMMY_FOOD;
   return (
     <section>
       <div className='mb-52'>

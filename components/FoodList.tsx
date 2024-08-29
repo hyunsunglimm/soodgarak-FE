@@ -1,8 +1,8 @@
-import { Food } from '@/types/food';
+import { SimpleFood } from '@/types/food';
 import FoodListItem from './FoodListItem';
 
 type FoodListProps = {
-  foods: Food[];
+  foods: SimpleFood[];
 };
 
 const FoodList = ({ foods }: FoodListProps) => {

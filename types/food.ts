@@ -13,3 +13,12 @@ export type Food = {
   mainImg: string;
   recipeTip: string;
 };
+
+export type SimpleFood = {
+  id: number;
+  menu: string;
+  mainImage: string;
+  mbti: string;
+  way: string;
+  category: string;
+};
