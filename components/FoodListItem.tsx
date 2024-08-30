@@ -18,8 +18,8 @@ const FoodListItem = ({ food, priority }: FoodListItemProps) => {
           <Image
             src={food.mainImage}
             alt={`${food.menu} 이미지`}
-            width={290}
-            height={290}
+            width='0'
+            height='0'
             className='h-[29rem] w-[29rem] object-cover transition hover:scale-110'
             priority={priority}
           />

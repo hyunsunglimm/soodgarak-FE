@@ -22,3 +22,9 @@ export type SimpleFood = {
   way: string;
   category: string;
 };
+
+export type FoodsResponse = {
+  hasNextData: boolean;
+  recipeResponse: SimpleFood[];
+  totalCount: number;
+};

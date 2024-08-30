@@ -9,12 +9,14 @@ import { useEffect, useState } from 'react';
 
 const useTinder = () => {
   // 무한 쿼리로 변경 예정
-  const { data: cards } = useQuery({
+  const { data } = useQuery({
     queryKey: ['foods', { type: 'dna' }],
     queryFn: getFoodCards
   });
 
   const router = useRouter();
+
+  const cards = data?.recipeResponse;
 
   const [currentIndex, setCurrentIndex] = useState(cards!.length - 1);
   const [likedCards, setLikedCards] = useState<SimpleFood[]>([]);
