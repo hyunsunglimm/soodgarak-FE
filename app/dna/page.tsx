@@ -1,7 +1,7 @@
-import FoodDnaLanding from './components/FoodDnaLanding';
+import FoodDNA from './components/FoodDNA';
 
 const DNAPage = () => {
-  return <FoodDnaLanding />;
+  return <FoodDNA />;
 };
 
 export default DNAPage;

@@ -2,27 +2,33 @@ import { getFoodCards } from '@/service/food';
 import { SimpleFood } from '@/types/food';
 import { mbtiDerivation } from '@/utils/foodDNA';
 import { useSprings } from '@react-spring/web';
-import { useQuery } from '@tanstack/react-query';
+import { useInfiniteQuery } from '@tanstack/react-query';
 import { useDrag } from '@use-gesture/react';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 const useTinder = () => {
-  // 무한 쿼리로 변경 예정
-  const { data } = useQuery({
+  const { data, isPending, fetchNextPage } = useInfiniteQuery({
     queryKey: ['foods', { type: 'dna' }],
-    queryFn: getFoodCards
+    queryFn: ({ pageParam }) => getFoodCards(pageParam),
+    initialPageParam: 1,
+    getNextPageParam: (result, _, next) => {
+      if (!result.hasNextData) return undefined;
+
+      return next + 1;
+    }
   });
 
   const router = useRouter();
 
-  const cards = data?.recipeResponse;
+  const cards = data?.pages.map((v) => v.recipeResponse).flat() || [];
 
-  const [currentIndex, setCurrentIndex] = useState(cards!.length - 1);
+  const [currentIndex, setCurrentIndex] = useState(29);
   const [likedCards, setLikedCards] = useState<SimpleFood[]>([]);
   const [isOpen, setIsOpen] = useState(false);
+  const [passedCardCount, setPassedCardCount] = useState(0);
 
-  const [springs, api] = useSprings(cards!.length, (index) => ({
+  const [springs, api] = useSprings(cards.length, (index) => ({
     x: 0,
     y: 0,
     rotate: 0,
@@ -37,8 +43,13 @@ const useTinder = () => {
       sessionStorage.setItem('mbti', mbtiDerivation(likedCards));
       console.log('FOOD DNA 결과: ', mbtiDerivation(likedCards));
       setIsOpen(true);
+    } else {
+      if (cards.length - passedCardCount === 10) {
+        setCurrentIndex(cards.length + 10 - 1);
+        fetchNextPage();
+      }
     }
-  }, [likedCards, router, currentIndex]);
+  }, [likedCards, router, currentIndex, cards.length, passedCardCount, fetchNextPage]);
 
   const complete = (
     isTrigger: boolean,
@@ -65,6 +76,7 @@ const useTinder = () => {
 
       if (isGone) {
         setCurrentIndex(index - 1);
+        setPassedCardCount((prev) => prev + 1);
         if (xDir === 1) setLikedCards((prev) => [...prev, cards![currentIndex]]);
       }
 
@@ -94,7 +106,7 @@ const useTinder = () => {
     complete(true, currentIndex, -1);
   };
 
-  return { cards, springs, isOpen, like, hate, bind };
+  return { cards, isPending, springs, isOpen, like, hate, bind };
 };
 
 export default useTinder;

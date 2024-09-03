@@ -5,9 +5,14 @@ import Modal from '@/components/Modal';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import useTinder from '../hooks/useTinder';
+import FillLoading from '@/components/FillLoading';
 
 const CardSwiper = () => {
-  const { cards, springs, isOpen, like, hate, bind } = useTinder();
+  const { cards, isPending, springs, isOpen, like, hate, bind } = useTinder();
+
+  if (isPending) {
+    return <FillLoading />;
+  }
 
   return (
     <>
