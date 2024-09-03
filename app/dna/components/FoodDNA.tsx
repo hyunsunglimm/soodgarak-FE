@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import CardSwiper from './CardSwiper';
-import FoodDNALanding from './FoodDNALanding';
+import FoodDNALanding from './Temp';
 
 const FoodDNA = () => {
   const [isTest, setIsTest] = useState(false);
