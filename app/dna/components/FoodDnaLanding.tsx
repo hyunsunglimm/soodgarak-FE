@@ -15,4 +15,6 @@ const FoodDNALanding = ({ onTest }: { onTest: () => void }) => {
   );
 };
 
+// 빌드 에러 해결
+
 export default FoodDNALanding;
