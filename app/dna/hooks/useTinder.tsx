@@ -12,6 +12,7 @@ const useTinder = () => {
     queryKey: ['foods', { type: 'dna' }],
     queryFn: ({ pageParam }) => getFoodCards(pageParam),
     initialPageParam: 1,
+    staleTime: 0,
     getNextPageParam: (result, _, next) => {
       if (!result.hasNextData) return undefined;
 
