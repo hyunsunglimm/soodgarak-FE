@@ -1,17 +1,16 @@
-type Manual = {
-  text: string;
-  img: string;
+export type Manual = {
+  manualId: number;
+  manual: string;
+  manualImgUrl: string;
 };
 
 export type Food = {
-  id: number;
-  name: string;
-  recipeWay: string;
-  category: string;
+  recipeId: number;
+  menu: string;
   ingredient: string;
-  manual: Manual[];
-  mainImg: string;
-  recipeTip: string;
+  mainImage: string;
+  tip: string;
+  manualList: Manual[];
 };
 
 export type SimpleFood = {

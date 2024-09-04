@@ -42,7 +42,6 @@ const useTinder = () => {
   useEffect(() => {
     if (likedCards.length === 15) {
       sessionStorage.setItem('mbti', mbtiDerivation(likedCards));
-      console.log('FOOD DNA 결과: ', mbtiDerivation(likedCards));
       setIsOpen(true);
     } else {
       if (cards.length - passedCardCount === 10) {
