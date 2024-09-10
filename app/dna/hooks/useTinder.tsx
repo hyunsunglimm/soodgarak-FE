@@ -1,3 +1,4 @@
+import { getQueryClient } from '@/context/queryProvider';
 import { getFoodCards } from '@/service/food';
 import { SimpleFood } from '@/types/food';
 import { mbtiDerivation } from '@/utils/foodDNA';
@@ -13,6 +14,7 @@ const useTinder = () => {
     queryFn: ({ pageParam }) => getFoodCards(pageParam),
     initialPageParam: 1,
     staleTime: 0,
+    gcTime: 0,
     getNextPageParam: (result, _, next) => {
       if (!result.hasNextData) return undefined;
 
